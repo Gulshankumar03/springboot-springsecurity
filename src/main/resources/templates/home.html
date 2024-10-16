@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Gilhari Home Page</title>
+</head>
+<body>
+<h2>Gilhari Home Page</h2>
+<hr>
+<h3>Welcome to Gilhari Company</h3>
+<p>
+    User : <span sec:authentication="principal.username"></span>
+    <br>
+    Roles : <span sec:authentication="principal.authorities"></span>
+</p>
+<hr>
+<p>
+    <a th:href="@{/leaders}">Leadership Meetings</a>
+    (only for MANAGER peeps)
+</p>
+<br>
+<p>
+    <a th:href="@{/systems}">IT Systems Meetings</a>
+    (only for ADMIN peeps)
+</p>
+<form action="#" th:action="@{/logout}" method="post">
+    <input type="submit" value="logout">
+</form>
+</body>
+</html>
